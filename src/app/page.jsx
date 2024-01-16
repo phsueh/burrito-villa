@@ -41,18 +41,18 @@ export default function Home() {
 
       <div className="grid grid-cols-2 gap-8 p-8 bg-white rounded-lg shadow-md">
     
-   {/* first column */}
+
     <div className="col-span-1 flex flex-col items-center justify-center">
       <p className="text-2xl font-bold mb-4">Menu</p>
-      {/* <!-- Your content for the first column goes here --> */}
+      <p>feature incomplete</p>
+
 
       <button onSubmit={handleOrderItem} className="bg-blue-500 text-white px-4 py-2 rounded">Add to Order</button>
     </div>
 
-    {/* second column */}
     <div className="col-span-1 flex flex-col items-center justify-center">
       <p className="text-2xl font-bold mb-4">Order</p>
-      {/* <!-- Your content for the second column goes here --> */}
+      <p>feature incomplete</p>
       <button className="bg-green-500 text-white px-4 py-2 rounded">Submit Order</button>
     </div>
 
