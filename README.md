@@ -2,7 +2,7 @@ This is Burrito Villa! A [Next.js](https://nextjs.org/) project bootstrapped wit
 
 ## Approach and reflections
 
-I choose Next.js because I felt it was easier to use a framework that included front-end, back-end, and database capabilites. 
+I choose Next.js because I wanted to use a framework that included front-end, back-end, and database capabilites. 
 
 However, I quickly learned that easier is not guaranteed no matter how much "convenience" the framework offers. I ran into unfamiliar concepts and learned a lot, but fell short of implementing all the features. Before this challenge, I developed APIs and backend applications using Sequelize, Ruby on Rails, and Spring Boot. This challenge gave me a chance to see areas of improvement when spinning up an new application quickly.
 
@@ -29,5 +29,23 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 Second, download dependencies
 
+## Testing Endpoints
 
+### GET Burritos
+- Sending a GET request to [api/burrito](https://burrito-villa.vercel.app/api/burrito) will return a list of burritos. 
 
+### POST Order Items
+- Using Postman or Insomnia a POST request can be sent to [api/orderItem](https://burrito-villa.vercel.app/api/orderItem) with the below payload
+
+ ```
+{
+	"burrito": "chicken burrito",
+	"quantity": 1,
+	"orderId": 2
+}
+ ``` 
+
+ Unfortunately, current implemenation is incomplete as the database will not persist item unless an order is present. Which is why an 'orderId' needs to be included in payload.  
+
+### GET Order[id]
+- Unable to implement endpoint

@@ -1,10 +1,6 @@
 'use client'
 
-import { useEffect, useState } from "react"
-
 export default function Home() {
-
-  const [burrito, setBurrito] = useState([])
 
   async function handleOrderItem() {
     try {
@@ -35,8 +31,8 @@ export default function Home() {
             </code>
         </p>
         <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a href="https://paulhsueh-dev.vercel.app/" target="_blank">
-            By <a className="font-mono font-bold underline" href="https://paulhsueh-dev.vercel.app/" target="_blank">Paul Hsueh</a>
+          <a className="font-mono font-bold underline"   href="https://paulhsueh-dev.vercel.app/" target="_blank">
+            By Paul Hsueh
           </a>
         </div>
       </div>
