@@ -54,7 +54,7 @@ export default function Home() {
             </span>
           </h2>
           <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Returns a list of all ordered items. After clicking "add to order" a new order time is added to an ongoing order. 
+            Returns a list of all ordered items.
           </p>
         </a>
 
