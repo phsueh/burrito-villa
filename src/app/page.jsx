@@ -1,12 +1,35 @@
 'use client'
 
+import { useEffect, useState } from "react"
+
 export default function Home() {
+
+  const [burrito, setBurrito] = useState([])
+
+  async function handleOrderItem() {
+    try {
+      const response = await fetch("http://burrito-villa.vercel.app/api/orderItem", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          data: {burrito: "carnitas burrito", quanity: 1, orderId: 2 }
+        })
+      })
+      const result = await response.json()
+      console.log(result)
+    } catch (error) {
+      console.log('error adding item to order', error)
+    }
+  }
+  
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
         <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          check out the GitHub repo&nbsp;
+          check out the Burrito Villa GitHub repo&nbsp;
           <code className="font-mono font-bold underline">
             <a href="https://github.com/phsueh/burrito-villa/" target="_blank">here</a>
             </code>
@@ -20,24 +43,21 @@ export default function Home() {
 
       <div className="relative flex place-items-center">
 
-
-      <div class="grid grid-cols-2 gap-8 p-8 bg-white rounded-lg shadow-md">
+      <div className="grid grid-cols-2 gap-8 p-8 bg-white rounded-lg shadow-md">
     
    {/* first column */}
-    <div class="col-span-1 flex flex-col items-center justify-center">
-      <p class="text-2xl font-bold mb-4">Menu</p>
+    <div className="col-span-1 flex flex-col items-center justify-center">
+      <p className="text-2xl font-bold mb-4">Menu</p>
       {/* <!-- Your content for the first column goes here --> */}
 
-    
-
-      <button class="bg-blue-500 text-white px-4 py-2 rounded">Add to Order</button>
+      <button onSubmit={handleOrderItem} className="bg-blue-500 text-white px-4 py-2 rounded">Add to Order</button>
     </div>
 
     {/* second column */}
-    <div class="col-span-1 flex flex-col items-center justify-center">
-      <p class="text-2xl font-bold mb-4">Order</p>
+    <div className="col-span-1 flex flex-col items-center justify-center">
+      <p className="text-2xl font-bold mb-4">Order</p>
       {/* <!-- Your content for the second column goes here --> */}
-      <button class="bg-green-500 text-white px-4 py-2 rounded">Submit Order</button>
+      <button className="bg-green-500 text-white px-4 py-2 rounded">Submit Order</button>
     </div>
 
   </div>
@@ -46,19 +66,19 @@ export default function Home() {
 
       <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
         <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+          href="http://burrito-villa.vercel.app/api/orderItem"
+          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-green-300 hover:bg-green-100 hover:dark:border-green-700 hover:dark:bg-green-800/30"
           target="_blank"
           rel="noopener noreferrer"
         >
           <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
+            api/orderItem{' '}
             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
             </span>
           </h2>
           <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
+            Returns a list of all ordered items. After clicking "add to order" a new order time is added to an ongoing order. 
           </p>
         </a>
 
