@@ -1,26 +1,6 @@
 'use client'
 
 export default function Home() {
-
-  async function handleOrderItem() {
-    try {
-      const response = await fetch("http://burrito-villa.vercel.app/api/orderItem", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          data: {burrito: "carnitas burrito", quanity: 1, orderId: 2 }
-        })
-      })
-      const result = await response.json()
-      console.log(result)
-    } catch (error) {
-      console.log('error adding item to order', error)
-    }
-  }
-  
-
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
@@ -47,7 +27,7 @@ export default function Home() {
       <p>feature incomplete</p>
 
 
-      <button onSubmit={handleOrderItem} className="bg-blue-500 text-white px-4 py-2 rounded">Add to Order</button>
+      <button className="bg-blue-500 text-white px-4 py-2 rounded">Add to Order</button>
     </div>
 
     <div className="col-span-1 flex flex-col items-center justify-center">
