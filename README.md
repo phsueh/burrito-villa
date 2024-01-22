@@ -49,3 +49,6 @@ Second, download dependencies
 
 ### GET Order[id]
 - Unable to implement endpoint
+
+## Feature update
+- Updating DB schema
