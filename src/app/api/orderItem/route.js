@@ -13,7 +13,7 @@ export async function POST(request) {
     const createOrderItem = await prisma.orderItem.create({
       data: {
         burrito: burrito,
-        quanity: quantity,
+        quantity: quantity,
         orderId: orderId
       },
     });
@@ -27,4 +27,3 @@ export async function POST(request) {
     });
   }
 }
-  
