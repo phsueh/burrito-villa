@@ -17,6 +17,7 @@ model Order {
 model OrderItem {
     id          Int @id @default(autoincrement())
     burrito     String
+    // option Option[]
     quantity    Int
     order       Order @relation(fields: [orderId], references: [id])
     orderId     Int
@@ -26,7 +27,7 @@ model Burrito {
     id          Int @id @default(autoincrement())
     name        String
     size        String
-    option      String[]
+    option      String[] // remove this and add to orderItem
     price       Float
 }
 

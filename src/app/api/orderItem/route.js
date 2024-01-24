@@ -15,7 +15,7 @@ export async function POST(request) {
         burrito: burrito,
         quantity: quantity,
         orderId: orderId
-      },
+      }
     });
     return new Response("order item created", {
       status: 201,
