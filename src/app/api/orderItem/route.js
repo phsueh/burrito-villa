@@ -17,12 +17,10 @@ export async function POST(request) {
         orderId: orderId
       }
     });
-    return new Response("order item created", {
-      status: 201,
-    });
+    return Response.json(createOrderItem);
   } catch (error) {
     console.log("error creating orderItem", error)
-    return new Response("order item not created", {
+    return Response("order item not created", {
       status: 500,
     });
   }
