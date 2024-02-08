@@ -13,6 +13,7 @@ export async function GET() {
 export async function POST(request) {
   const order = await request.json();
   const { orderItem, totalCost } = order;
+  
 
   try {
     const createOrder = await prisma.order
@@ -23,13 +24,12 @@ export async function POST(request) {
       })
       .then((orderData) => {
         const orderId = orderData.id;
+        order.orderItem.map((items) => (items.orderId = orderId));
         const createOrderItem = fetch("http://localhost:3000/api/orderItem", {
           method: "POST",
-          body: JSON.stringify({
-            burrito: order.orderItem.burrito,
-            quantity: order.orderItem.quantity,
-            orderId: orderId,
-          }),
+          body: JSON.stringify(
+            order.orderItem
+          ),
         });
         return orderId
       });

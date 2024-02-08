@@ -7,15 +7,13 @@ export async function GET() {
 }
 
 export async function POST(request) {
+
   const orderItem = await request.json();
-  const {burrito, quantity, orderId} = orderItem
+
   try { 
-    const createOrderItem = await prisma.orderItem.create({
-      data: {
-        burrito: burrito,
-        quantity: quantity,
-        orderId: orderId
-      }
+    const createOrderItem = await prisma.orderItem.createMany({
+      data: 
+        orderItem
     });
     return Response.json(createOrderItem);
   } catch (error) {
