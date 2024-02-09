@@ -16,8 +16,7 @@ export async function POST(request) {
   
 
   try {
-    const createOrder = await prisma.order
-      .create({
+    const createOrder = await prisma.order.create({
         data: {
           totalCost: totalCost,
         },
