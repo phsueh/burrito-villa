@@ -11,13 +11,13 @@ export async function POST(request) {
 
   try {
     const createOrderItem = await prisma.orderItem.createMany({
-      data: orderItem,
+      data: orderItem
     });
     return Response.json(createOrderItem);
   } catch (error) {
     console.log("error creating orderItem", error);
     return Response("order item not created", {
-      status: 500,
+      status: 500
     });
   }
 }

@@ -8,7 +8,3 @@ export function middleware(req, event) {
 export const config = {
     matcher: '/api/play',
 }
-
-// look into waitUntil and nextFetchEvent
-// post an order and return with order id
-// then post again to database with order 

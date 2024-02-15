@@ -14,7 +14,6 @@ export async function POST(request) {
   const order = await request.json();
   const { orderItem, totalCost } = order;
   
-
   try {
     const createOrder = await prisma.order.create({
         data: {
@@ -32,8 +31,6 @@ export async function POST(request) {
         });
         return orderId
       });
-
-    console.log(createOrder)
 
     return Response.json( {order : createOrder} );
 
